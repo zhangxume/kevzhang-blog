@@ -1,4 +1,23 @@
 baseURL = 'https://kevzhang.top/'
 languageCode = 'en-us'
-title = 'kevzhang'
+DefaultContentLanguage = "zh"
+title = "kevzhang's Blog"
 theme = 'diary'
+
+[params]
+favicon = '/images/icon.ico'
+
+[[menu.main]]
+url = "/about"
+name = "关于"
+weight = 3
+
+[[menu.main]]
+url = "/tags"
+name = "分类"
+weight = 2
+
+[[menu.main]]
+url = "/posts"
+name = "归档"
+weight = 1
