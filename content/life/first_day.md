@@ -5,4 +5,6 @@ draft: false
 ---
 
 This is a test blog.
-this is
+TODO: 
+change domain
+update blog
