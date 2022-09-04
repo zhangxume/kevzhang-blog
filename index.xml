@@ -1,5 +1,6 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kevzhang's Blog</title><link>https://kevzhang.top/</link><description>Recent content on kevzhang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 04 Sep 2022 12:27:11 +0800</lastBuildDate><atom:link href="https://kevzhang.top/index.xml" rel="self" type="application/rss+xml"/><item><title>First_day</title><link>https://kevzhang.top/life/first_day/</link><pubDate>Sun, 04 Sep 2022 12:27:11 +0800</pubDate><guid>https://kevzhang.top/life/first_day/</guid><description>kevzhang's Blog https://kevzhang.top/life/first_day/ -&lt;p>This is a test blog.
-TODO:
-change domain
-update blog&lt;/p>
-- https://kevzhang.top/life/first_day/ -</description></item></channel></rss>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kevzhang's Blog</title><link>https://kevzhang.top/</link><description>Recent content on kevzhang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 04 Sep 2022 12:27:11 +0800</lastBuildDate><atom:link href="https://kevzhang.top/index.xml" rel="self" type="application/rss+xml"/><item><title>关于</title><link>https://kevzhang.top/about/</link><pubDate>Sun, 04 Sep 2022 21:39:46 +0800</pubDate><guid>https://kevzhang.top/about/</guid><description>kevzhang's Blog https://kevzhang.top/about/ -&lt;h2 id="此页面内容有待更新">此页面内容有待更新&lt;/h2>
+- https://kevzhang.top/about/ -</description></item><item><title>First_day</title><link>https://kevzhang.top/posts/first_day/</link><pubDate>Sun, 04 Sep 2022 12:27:11 +0800</pubDate><guid>https://kevzhang.top/posts/first_day/</guid><description>kevzhang's Blog https://kevzhang.top/posts/first_day/ -&lt;ul>
+&lt;li>This is a test blog.&lt;/li>
+&lt;/ul>
+&lt;p>TODO:&lt;/p>
+- https://kevzhang.top/posts/first_day/ -</description></item></channel></rss>
