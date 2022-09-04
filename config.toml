@@ -5,7 +5,7 @@ title = "kevzhang's Blog"
 theme = 'diary'
 
 [params]
-favicon = '/images/icon.ico'
+favicon = 'static/images/icon.ico'
 
 [[menu.main]]
 url = "/about"
@@ -14,7 +14,7 @@ weight = 3
 
 [[menu.main]]
 url = "/tags"
-name = "分类"
+name = "标签"
 weight = 2
 
 [[menu.main]]
