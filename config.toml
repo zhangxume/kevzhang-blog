@@ -5,7 +5,7 @@ title = "kevzhang's Blog"
 theme = 'diary'
 
 [params]
-favicon = 'static/images/icon.ico'
+favicon = '/images/layers.ico'
 
 [[menu.main]]
 url = "/about"
