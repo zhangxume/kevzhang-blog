@@ -37,8 +37,8 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>保存上述修改的配置文件，重启 Web Server&lt;/li>
 &lt;/ul>
-&lt;pre tabindex="0">&lt;code>[xxx@hadoop102 azkaban-web]$ bin/shutdown-web.sh
-[xxx@hadoop102 azkaban-web]$ bin/start-web.sh
+&lt;pre tabindex="0">&lt;code>[xxx@hostname azkaban-web]$ bin/shutdown-web.sh
+[xxx@hostname azkaban-web]$ bin/start-web.sh
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>
 &lt;p>在 Notification 中填写接收报警通知的邮箱并执行 Project&lt;/p>
@@ -63,6 +63,9 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 &lt;/li>
 &lt;li>
 &lt;p>执行 Project 后等待几十秒或几分钟就会收到机器人语音来电，通知告警消息。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>后续可在第三方告警平台及时查看每日的告警详细记录。&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;!-- raw HTML omitted -->
