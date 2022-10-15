@@ -27,12 +27,13 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 ```
 - 保存上述修改的配置文件，重启 Web Server
 ```
-[xxx@hadoop102 azkaban-web]$ bin/shutdown-web.sh
-[xxx@hadoop102 azkaban-web]$ bin/start-web.sh
+[xxx@hostname azkaban-web]$ bin/shutdown-web.sh
+[xxx@hostname azkaban-web]$ bin/start-web.sh
 ```
 - 在 Notification 中填写接收报警通知的邮箱并执行 Project
 
 - Project 执行结束并收到对应的通知邮件
+
 <center>
 
 ![](/azkaban_alert/email.jpg)
@@ -47,6 +48,9 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 - Azkaban 配置的 smtp 邮箱将告警邮件发送到第三方的告警平台提供的邮箱，第三方服务邮箱收到邮件后执行电话通知的任务。
 
 - 执行 Project 后等待几十秒或几分钟就会收到机器人语音来电，通知告警消息。
+
+- 后续可在第三方告警平台及时查看每日的告警详细记录。
+
 <center>
 
 ![](/azkaban_alert/phone.jpg)  
