@@ -18,7 +18,7 @@ draft: false
 |mail.user|The email server user name.|
 |mail.password|The email password user name.|
 
-```properties
+```
 # 开通smtp服务后，设置邮件发送服务器
 mail.sender=你的邮箱
 mail.host=你的邮箱对应的smtp服务器（例如：smtp.163.com）
@@ -26,7 +26,7 @@ mail.user=你的邮箱
 mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权码）
 ```
 - 保存修改的配置文件，重启 Web Server
-```shell
+```
 [xxx@hadoop102 azkaban-web]$ bin/shutdown-web.sh
 [xxx@hadoop102 azkaban-web]$ bin/start-web.sh
 ```

@@ -7,7 +7,6 @@ theme = 'diary'
 
 [params]
 enableReadingTime=true
-enableAutoDarkMode=true
 favicon = '/images/layers.ico'
 
 [[menu.main]]
