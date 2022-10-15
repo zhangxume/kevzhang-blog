@@ -29,17 +29,17 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-properties" data-lang="properties">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开通smtp服务后，设置邮件发送服务器&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">mail.sender&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">你的邮箱&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">mail.host&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">你的邮箱对应的smtp服务器（例如：smtp.163.com）&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">mail.user&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">你的邮箱&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">mail.password&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">你的邮箱的授权码（在开通smtp服务后获得的授权码）&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;pre tabindex="0">&lt;code># 开通smtp服务后，设置邮件发送服务器
+mail.sender=你的邮箱
+mail.host=你的邮箱对应的smtp服务器（例如：smtp.163.com）
+mail.user=你的邮箱
+mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权码）
+&lt;/code>&lt;/pre>&lt;ul>
 &lt;li>保存修改的配置文件，重启 Web Server&lt;/li>
 &lt;/ul>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hadoop102 azkaban-web&lt;span style="color:#f92672">]&lt;/span>$ bin/shutdown-web.sh
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hadoop102 azkaban-web&lt;span style="color:#f92672">]&lt;/span>$ bin/start-web.sh
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;pre tabindex="0">&lt;code>[xxx@hadoop102 azkaban-web]$ bin/shutdown-web.sh
+[xxx@hadoop102 azkaban-web]$ bin/start-web.sh
+&lt;/code>&lt;/pre>&lt;ul>
 &lt;li>
 &lt;p>在 Notification 中填写接收报警通知的邮箱并执行 Project&lt;/p>
 &lt;/li>
