@@ -1,4 +1,60 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kevzhang's Blog</title><link>https://kevzhang.top/</link><description>Recent content on kevzhang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 04 Sep 2022 12:27:11 +0800</lastBuildDate><atom:link href="https://kevzhang.top/index.xml" rel="self" type="application/rss+xml"/><item><title>关于</title><link>https://kevzhang.top/about/</link><pubDate>Sun, 04 Sep 2022 21:39:46 +0800</pubDate><guid>https://kevzhang.top/about/</guid><description>kevzhang's Blog https://kevzhang.top/about/ -&lt;h2 id="此页面内容有待更新">此页面内容有待更新&lt;/h2>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kevzhang's Blog</title><link>https://kevzhang.top/</link><description>Recent content on kevzhang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 15 Oct 2022 10:54:00 +0800</lastBuildDate><atom:link href="https://kevzhang.top/index.xml" rel="self" type="application/rss+xml"/><item><title>Azkaban 配置邮件及电话告警</title><link>https://kevzhang.top/posts/azkaban_alert/</link><pubDate>Sat, 15 Oct 2022 10:54:00 +0800</pubDate><guid>https://kevzhang.top/posts/azkaban_alert/</guid><description>kevzhang's Blog https://kevzhang.top/posts/azkaban_alert/ -&lt;h2 id="通过邮件方式">通过邮件方式&lt;/h2>
+&lt;ul>
+&lt;li>修改 Azkaban Web Server 端的 &lt;code>azkaban.properties&lt;/code> 配置文件
+配置参数&lt;/li>
+&lt;/ul>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Parameter&lt;/th>
+&lt;th>Description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>mail.sender&lt;/td>
+&lt;td>The email address that azkaban uses to send emails.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>mail.host&lt;/td>
+&lt;td>The email server host machine.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>mail.user&lt;/td>
+&lt;td>The email server user name.&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>mail.password&lt;/td>
+&lt;td>The email password user name.&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-properties" data-lang="properties">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 开通smtp服务后，设置邮件发送服务器&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">mail.sender&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">你的邮箱&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">mail.host&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">你的邮箱对应的smtp服务器（例如：smtp.163.com）&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">mail.user&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">你的邮箱&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">mail.password&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">你的邮箱的授权码（在开通smtp服务后获得的授权码）&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>保存修改的配置文件，重启 Web Server&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hadoop102 azkaban-web&lt;span style="color:#f92672">]&lt;/span>$ bin/shutdown-web.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hadoop102 azkaban-web&lt;span style="color:#f92672">]&lt;/span>$ bin/start-web.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>在 Notification 中填写接收报警通知的邮箱并执行 Project&lt;/li>
+&lt;li>Project 执行结束并收到对应的通知邮件
+&lt;img src="../../static/azkaban_alert/email.jpg" alt="">&lt;/li>
+&lt;/ul>
+&lt;h2 id="通过电话方式">通过电话方式&lt;/h2>
+&lt;ul>
+&lt;li>通过邮件接收报警通知可能存在接收消息不及时的问题，因此可以采用电话的方式接收报警通知。&lt;/li>
+&lt;li>可以集成第三方的告警平台。&lt;/li>
+&lt;li>Azkaban 配置的 smtp 邮箱将告警邮件发送到第三方的告警平台提供的邮箱，第三方服务邮箱收到邮件后执行电话通知的任务。&lt;/li>
+&lt;li>执行 Project 后等待几十秒或几分钟就会收到机器人语音来电，通知告警消息。
+&lt;img src="../../static/azkaban_alert/phone.jpg" alt="">&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考链接">参考链接&lt;/h2>
+&lt;p>&lt;a href="https://azkaban.readthedocs.io/en/latest/configuration.html">configuration.html&lt;/a>&lt;/p>
+- https://kevzhang.top/posts/azkaban_alert/ -</description></item><item><title>关于</title><link>https://kevzhang.top/about/</link><pubDate>Sun, 04 Sep 2022 21:39:46 +0800</pubDate><guid>https://kevzhang.top/about/</guid><description>kevzhang's Blog https://kevzhang.top/about/ -&lt;h2 id="此页面内容有待更新">此页面内容有待更新&lt;/h2>
 - https://kevzhang.top/about/ -</description></item><item><title>First_day</title><link>https://kevzhang.top/posts/first_day/</link><pubDate>Sun, 04 Sep 2022 12:27:11 +0800</pubDate><guid>https://kevzhang.top/posts/first_day/</guid><description>kevzhang's Blog https://kevzhang.top/posts/first_day/ -&lt;ul>
 &lt;li>This is a test blog.&lt;/li>
 &lt;/ul>
