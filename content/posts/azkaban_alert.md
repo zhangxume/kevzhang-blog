@@ -25,7 +25,7 @@ mail.host=你的邮箱对应的smtp服务器（例如：smtp.163.com）
 mail.user=你的邮箱
 mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权码）
 ```
-- 保存修改的配置文件，重启 Web Server
+- 保存上述修改的配置文件，重启 Web Server
 ```
 [xxx@hadoop102 azkaban-web]$ bin/shutdown-web.sh
 [xxx@hadoop102 azkaban-web]$ bin/start-web.sh
