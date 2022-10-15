@@ -21,7 +21,7 @@ mail.sender=你的邮箱
 mail.host=你的邮箱对应的smtp服务器（例如：smtp.163.com）
 mail.user=你的邮箱
 mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权码）
-</code></pre><ul><li>保存修改的配置文件，重启 Web Server</li></ul><pre tabindex=0><code>[xxx@hadoop102 azkaban-web]$ bin/shutdown-web.sh
+</code></pre><ul><li>保存上述修改的配置文件，重启 Web Server</li></ul><pre tabindex=0><code>[xxx@hadoop102 azkaban-web]$ bin/shutdown-web.sh
 [xxx@hadoop102 azkaban-web]$ bin/start-web.sh
 </code></pre><ul><li><p>在 Notification 中填写接收报警通知的邮箱并执行 Project</p></li><li><p>Project 执行结束并收到对应的通知邮件</p></li></ul><p><img src=/azkaban_alert/email.jpg alt></p><h3 id=通过电话方式>通过电话方式</h3><ul><li><p>通过邮件接收报警通知可能存在接收消息不及时的问题，因此可以采用电话的方式接收报警通知。</p></li><li><p>可以集成第三方的告警平台。</p></li><li><p>Azkaban 配置的 smtp 邮箱将告警邮件发送到第三方的告警平台提供的邮箱，第三方服务邮箱收到邮件后执行电话通知的任务。</p></li><li><p>执行 Project 后等待几十秒或几分钟就会收到机器人语音来电，通知告警消息。</p></li></ul><p><img src=/azkaban_alert/phone.jpg alt></p><h3 id=参考链接>参考链接</h3><p><a href=https://azkaban.readthedocs.io/en/latest/configuration.html>configuration.html</a></p><hr width=100% id=EOF><p style=color:#777>最后修改于 2022-10-15</p></div></div><nav class=post-pagination><a class=newer-posts>下回<br>已经到头啦。</a>
 <a class=older-posts href=/about/>上回<br>关于</a></nav><div class=post-comment-wrapper></div></div></div></div></div><div id=single-column-footer>Hugo Theme <a href=https://github.com/amazingrise/hugo-theme-diary>Diary</a> by <a href=https://risehere.net/>Rise</a><br>移植自 <a href=https://mak1t0.cc/ target=_blank rel="noreferrer noopener">Makito</a>'s <a href=https://github.com/SumiMakito/hexo-theme-journal/ target=_blank rel="noreferrer noopener">Journal.</a><br><br>&copy;
