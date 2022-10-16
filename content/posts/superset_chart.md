@@ -66,9 +66,9 @@ draft: false
 
   但在 Superset 中选择第一种编码则只能显示港澳台地区的数据，其他地区无法显示；而选择第二种编码则港澳台地区无法显示，其他地区可以显示。一番搜索发现是 Superset 在港澳台和其他地区提供的编码方式不一致导致的问题。
 - **解决方法**：
-  - 按照[解决方式](https://blog.csdn.net/csncd/article/details/124559112)，进入 Superset 的安装目录下的目录。  
+  - 按照[解决方法](https://blog.csdn.net/csncd/article/details/124559112)，进入 Superset 的安装目录下的目录。  
   `/lib/python3.8/site-packages/superset/static/assets/`
-  - 找到对应的地图文件，.geojson 文件有很多，过滤找出文件，  
+  - 找到对应的地图文件，`.geojson` 文件有很多，过滤找出文件，  
   `grep -rl 'Beijing'`  
   并修改，将编码方式修改一致即可。
 
