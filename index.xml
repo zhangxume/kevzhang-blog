@@ -47,9 +47,9 @@
 &lt;ul>
 &lt;li>&lt;strong>解决方法&lt;/strong>：
 &lt;ul>
-&lt;li>按照&lt;a href="https://blog.csdn.net/csncd/article/details/124559112">解决方式&lt;/a>，进入 Superset 的安装目录下的目录。&lt;br>
+&lt;li>按照&lt;a href="https://blog.csdn.net/csncd/article/details/124559112">解决方法&lt;/a>，进入 Superset 的安装目录下的目录。&lt;br>
 &lt;code>/lib/python3.8/site-packages/superset/static/assets/&lt;/code>&lt;/li>
-&lt;li>找到对应的地图文件，.geojson 文件有很多，过滤找出文件，&lt;br>
+&lt;li>找到对应的地图文件，&lt;code>.geojson&lt;/code> 文件有很多，过滤找出文件，&lt;br>
 &lt;code>grep -rl 'Beijing'&lt;/code>&lt;br>
 并修改，将编码方式修改一致即可。&lt;/li>
 &lt;/ul>
