@@ -32,10 +32,10 @@ draft: false
   (base) [xxx@hostname ~]$ conda activate superset
   (superset) [xxx@hostname ~]$ conda deactivate
   ```
-#### 创建 ~~Python 3.7 环境~~（出现版本不兼容的问题，改成3.6）
+#### 创建 ~~Python 3.7 环境~~（出现版本不兼容的问题，改成3.9）
 - 创建环境  
   ```shell
-  [xxx@hostname ~]$ conda create --name superset python=3.6
+  [xxx@hostname ~]$ conda create --name superset python=3.9
   ```
 ## Superset 安装部署
 - 安装依赖  
@@ -49,8 +49,11 @@ draft: false
   ```
 - 解决 warning，执行以下两条命令  
   ```shell
-  (superset) [xxx@hostname ~]$ pip install sqlalchemy==1.3.24  
-  (superset) [xxx@hostname ~]$ pip install dataclasses
+  (superset) [xxx@hostname ~]$ pip uninstall Flask  
+  (superset) [xxx@hostname ~]$ pip uninstall Werkzeug  
+  (superset) [xxx@hostname ~]$ pip install Flask==2.0.2  
+  (superset) [xxx@hostname ~]$ pip install Werkzeug==2.0.2  
+  (superset) [xxx@hostname ~]$ pip install WTForms==2.3.3
   ```
 - 初始化数据库  
   ```shell
@@ -82,4 +85,4 @@ draft: false
 ## 参考链接
 [installation.html](https://apache-superset.readthedocs.io/en/latest/installation.html)  
 [installing-superset-from-scratch](https://superset.apache.org/docs/installation/installing-superset-from-scratch)  
-[article](https://blog.csdn.net/m0_46914845/article/details/125868049?spm=1001.2014.3001.5502)
+[article_127125458](https://blog.csdn.net/weixin_45501045/article/details/127125458)
