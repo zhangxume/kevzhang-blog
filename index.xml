@@ -1,4 +1,77 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kevzhang's Blog</title><link>https://kevzhang.top/</link><description>Recent content on kevzhang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 15 Oct 2022 10:54:00 +0800</lastBuildDate><atom:link href="https://kevzhang.top/index.xml" rel="self" type="application/rss+xml"/><item><title>Azkaban 配置邮件及电话告警</title><link>https://kevzhang.top/posts/azkaban_alert/</link><pubDate>Sat, 15 Oct 2022 10:54:00 +0800</pubDate><guid>https://kevzhang.top/posts/azkaban_alert/</guid><description>kevzhang's Blog https://kevzhang.top/posts/azkaban_alert/ -&lt;h3 id="通过邮件方式">通过邮件方式&lt;/h3>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kevzhang's Blog</title><link>https://kevzhang.top/</link><description>Recent content on kevzhang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 16 Oct 2022 12:00:59 +0800</lastBuildDate><atom:link href="https://kevzhang.top/index.xml" rel="self" type="application/rss+xml"/><item><title>Superset 配置环境</title><link>https://kevzhang.top/posts/superset/</link><pubDate>Sun, 16 Oct 2022 12:00:59 +0800</pubDate><guid>https://kevzhang.top/posts/superset/</guid><description>kevzhang's Blog https://kevzhang.top/posts/superset/ -&lt;h2 id="superset-配置环境">Superset 配置环境&lt;/h2>
+&lt;h3 id="版本依赖">版本依赖&lt;/h3>
+&lt;ul>
+&lt;li>由于 CentOS 7 内置的 Python 版本为 2.7.5，而在&lt;a href="https://apache-superset.readthedocs.io/en/latest/installation.html">旧版本的文档中提到&lt;/a>&lt;br>
+&lt;code>Superset supports Python versions &amp;gt;3.7 to take advantage of the newer Python features and reduce the burden of supporting previous versions.&lt;/code>&lt;br>
+在&lt;a href="https://superset.apache.org/docs/installation/installing-superset-from-scratch">新版本的文档&lt;/a>中按照提供的命令即可完成所需依赖的安装。&lt;/li>
+&lt;/ul>
+&lt;h3 id="miniconda">Miniconda&lt;/h3>
+&lt;ul>
+&lt;li>安装 Miniconda 用于管理 Python 版本及其依赖。&lt;/li>
+&lt;/ul>
+&lt;h4 id="常用命令">常用命令&lt;/h4>
+&lt;ul>
+&lt;li>创建环境
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ conda create -n env_name
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>查看所有环境
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ conda info --envs
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>删除一个环境
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ conda remove -n env_name --all
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>切换环境
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>base&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ conda activate superset
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ conda deactivate
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="创建-python-37-环境出现版本不兼容的问题改成36">创建 &lt;del>Python 3.7 环境&lt;/del>（出现版本不兼容的问题，改成3.6）&lt;/h4>
+&lt;ul>
+&lt;li>创建环境
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ conda create --name superset python&lt;span style="color:#f92672">=&lt;/span>3.6
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="superset-安装部署">Superset 安装部署&lt;/h2>
+&lt;ul>
+&lt;li>安装依赖
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ sudo yum install -y gcc gcc-c++ libffi-devel python-devel python-pip python-wheel python-setuptools openssl-devel cyrus-sasl-devel openldap-devel
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>安装Superset（指定镜像会快一些，可以更换其他的镜像源试试）
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ pip install --upgrade setuptools pip -i https://pypi.douban.com/simple/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ pip install apache-superset -i https://pypi.douban.com/simple/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>解决 warning，执行以下两条命令
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ pip install sqlalchemy&lt;span style="color:#f92672">==&lt;/span>1.3.24
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ pip install dataclasses
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>初始化数据库
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ superset db upgrade
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>创建管理员用户
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ export FLASK_APP&lt;span style="color:#f92672">=&lt;/span>superset
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ superset fab create-admin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>初始化
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ superset init
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="启动-superset">启动 Superset&lt;/h3>
+&lt;ul>
+&lt;li>安装 gunicorn
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ pip install gunicorn -i https://pypi.douban.com/simple/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>启动
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ gunicorn --workers &lt;span style="color:#ae81ff">5&lt;/span> --timeout &lt;span style="color:#ae81ff">120&lt;/span> --bind hostname:8787 &lt;span style="color:#e6db74">&amp;#34;superset.app:create_app()&amp;#34;&lt;/span> --daemon
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>停止
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>superset&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">[&lt;/span>xxx@hostname ~&lt;span style="color:#f92672">]&lt;/span>$ ps -ef | awk &lt;span style="color:#e6db74">&amp;#39;/superset/ &amp;amp;&amp;amp; !/awk/{print $2}&amp;#39;&lt;/span> | xargs kill -9
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h2 id="参考链接">参考链接&lt;/h2>
+&lt;p>&lt;a href="https://apache-superset.readthedocs.io/en/latest/installation.html">installation.html&lt;/a>&lt;br>
+&lt;a href="https://superset.apache.org/docs/installation/installing-superset-from-scratch">installing-superset-from-scratch&lt;/a>&lt;br>
+&lt;a href="https://blog.csdn.net/m0_46914845/article/details/125868049?spm=1001.2014.3001.5502">article&lt;/a>&lt;/p>
+- https://kevzhang.top/posts/superset/ -</description></item><item><title>Azkaban 配置邮件及电话告警</title><link>https://kevzhang.top/posts/azkaban_alert/</link><pubDate>Sat, 15 Oct 2022 10:54:00 +0800</pubDate><guid>https://kevzhang.top/posts/azkaban_alert/</guid><description>kevzhang's Blog https://kevzhang.top/posts/azkaban_alert/ -&lt;h2 id="通过邮件方式">通过邮件方式&lt;/h2>
 &lt;ul>
 &lt;li>修改 Azkaban Web Server 端的 &lt;code>azkaban.properties&lt;/code> 配置文件
 配置参数&lt;/li>
@@ -37,9 +110,9 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 &lt;/code>&lt;/pre>&lt;ul>
 &lt;li>保存上述修改的配置文件，重启 Web Server&lt;/li>
 &lt;/ul>
-&lt;pre tabindex="0">&lt;code>[xxx@hostname azkaban-web]$ bin/shutdown-web.sh
-[xxx@hostname azkaban-web]$ bin/start-web.sh
-&lt;/code>&lt;/pre>&lt;ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hostname azkaban-web&lt;span style="color:#f92672">]&lt;/span>$ bin/shutdown-web.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span>xxx@hostname azkaban-web&lt;span style="color:#f92672">]&lt;/span>$ bin/start-web.sh
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>
 &lt;p>在 Notification 中填写接收报警通知的邮箱并执行 Project&lt;/p>
 &lt;/li>
@@ -50,7 +123,7 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 &lt;!-- raw HTML omitted -->
 &lt;p>&lt;img src="https://kevzhang.top/azkaban_alert/email.jpg" alt="">&lt;/p>
 &lt;!-- raw HTML omitted -->
-&lt;h3 id="通过电话方式">通过电话方式&lt;/h3>
+&lt;h2 id="通过电话方式">通过电话方式&lt;/h2>
 &lt;ul>
 &lt;li>
 &lt;p>通过邮件接收报警通知可能存在接收消息不及时的问题，因此可以采用电话的方式接收报警通知。&lt;/p>
@@ -71,7 +144,7 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 &lt;!-- raw HTML omitted -->
 &lt;p>&lt;img src="https://kevzhang.top/azkaban_alert/phone.jpg" alt="">&lt;/p>
 &lt;!-- raw HTML omitted -->
-&lt;h3 id="参考链接">参考链接&lt;/h3>
+&lt;h2 id="参考链接">参考链接&lt;/h2>
 &lt;p>&lt;a href="https://azkaban.readthedocs.io/en/latest/configuration.html">configuration.html&lt;/a>&lt;/p>
 - https://kevzhang.top/posts/azkaban_alert/ -</description></item><item><title>关于</title><link>https://kevzhang.top/about/</link><pubDate>Sun, 04 Sep 2022 21:39:46 +0800</pubDate><guid>https://kevzhang.top/about/</guid><description>kevzhang's Blog https://kevzhang.top/about/ -&lt;h2 id="此页面内容有待更新">此页面内容有待更新&lt;/h2>
 - https://kevzhang.top/about/ -</description></item></channel></rss>
