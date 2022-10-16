@@ -1,4 +1,71 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kevzhang's Blog</title><link>https://kevzhang.top/</link><description>Recent content on kevzhang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 16 Oct 2022 12:00:59 +0800</lastBuildDate><atom:link href="https://kevzhang.top/index.xml" rel="self" type="application/rss+xml"/><item><title>Superset 配置环境</title><link>https://kevzhang.top/posts/superset/</link><pubDate>Sun, 16 Oct 2022 12:00:59 +0800</pubDate><guid>https://kevzhang.top/posts/superset/</guid><description>kevzhang's Blog https://kevzhang.top/posts/superset/ -&lt;h2 id="superset-配置环境">Superset 配置环境&lt;/h2>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>kevzhang's Blog</title><link>https://kevzhang.top/</link><description>Recent content on kevzhang's Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 16 Oct 2022 19:05:56 +0800</lastBuildDate><atom:link href="https://kevzhang.top/index.xml" rel="self" type="application/rss+xml"/><item><title>Superset 实践及踩坑记录</title><link>https://kevzhang.top/posts/superset_chart/</link><pubDate>Sun, 16 Oct 2022 19:05:56 +0800</pubDate><guid>https://kevzhang.top/posts/superset_chart/</guid><description>kevzhang's Blog https://kevzhang.top/posts/superset_chart/ -&lt;h2 id="superset-怎么用">Superset 怎么用&lt;/h2>
+&lt;h3 id="整体布局">整体布局&lt;/h3>
+&lt;ul>
+&lt;li>首先整体的布局分为 Databases、Datasets、Charts、Dashboards 等几个部分。&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://kevzhang.top/superset_chart/home.png" alt="">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h3 id="databases">Databases&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>Select a database to connect&lt;/code>&lt;br>
+填写需要连接的数据库，数据库连接配置信息可以参考&lt;a href="https://superset.apache.org/docs/databases/installing-database-drivers/">官方文档&lt;/a>填写。&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://kevzhang.top/superset_chart/database.png" alt="">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h3 id="datasets">Datasets&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>Add dataset&lt;/code>&lt;br>
+添加连接的数据库中的具体的表，数据库连接成功后下拉即可点击选择需要的表。&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://kevzhang.top/superset_chart/dataset.png" alt="">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h3 id="charts">Charts&lt;/h3>
+&lt;ul>
+&lt;li>&lt;code>Create a new chart&lt;/code>&lt;br>
+从 Datasets 中选择一张需要可视化的表。&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://kevzhang.top/superset_chart/chart.png" alt="">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;ul>
+&lt;li>根据实际的需求选择图表的类型，配置详细的展示信息。例如绘制地图类型的图表，展现不同省份的下单次数。&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://kevzhang.top/superset_chart/map.png" alt="">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;ul>
+&lt;li>&lt;strong>踩坑问题&lt;/strong>：
+这里就出现了一个非常坑的地方，绘制地图所用的表提供了两种编码用于标识省份，&lt;code>iso_code&lt;/code>和&lt;code>iso_code_3166_2&lt;/code>，用哪个都可以。&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://kevzhang.top/superset_chart/table.png" alt="">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>但在 Superset 中选择第一种编码则只能显示港澳台地区的数据，其他地区无法显示；而选择第二种编码则港澳台地区无法显示，其他地区可以显示。一番搜索发现是 Superset 在港澳台和其他地区提供的编码方式不一致导致的问题。&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>解决方法&lt;/strong>：
+&lt;ul>
+&lt;li>按照&lt;a href="https://blog.csdn.net/csncd/article/details/124559112">解决方式&lt;/a>，进入 Superset 的安装目录下的目录。&lt;br>
+&lt;code>/lib/python3.8/site-packages/superset/static/assets/&lt;/code>&lt;/li>
+&lt;li>找到对应的地图文件，.geojson 文件有很多，过滤找出文件，&lt;br>
+&lt;code>grep -rl 'Beijing'&lt;/code>&lt;br>
+并修改，将编码方式修改一致即可。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="dashboards">Dashboards&lt;/h3>
+&lt;ul>
+&lt;li>编辑布局，添加图表即可完成 Dashboard 绘制。&lt;/li>
+&lt;li>也可以对 Dashboards 进行刷新，根据需要设置&lt;code>REFRESH FREQUENCY&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;img src="https://kevzhang.top/superset_chart/dashboard.png" alt="">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="参考链接">参考链接&lt;/h2>
+&lt;p>&lt;a href="https://blog.csdn.net/csncd/article/details/124559112">article_124559112&lt;/a>&lt;/p>
+- https://kevzhang.top/posts/superset_chart/ -</description></item><item><title>Superset 配置环境</title><link>https://kevzhang.top/posts/superset/</link><pubDate>Sun, 16 Oct 2022 12:00:59 +0800</pubDate><guid>https://kevzhang.top/posts/superset/</guid><description>kevzhang's Blog https://kevzhang.top/posts/superset/ -&lt;h2 id="superset-配置环境">Superset 配置环境&lt;/h2>
 &lt;h3 id="版本依赖">版本依赖&lt;/h3>
 &lt;ul>
 &lt;li>由于 CentOS 7 内置的 Python 版本为 2.7.5，而在&lt;a href="https://apache-superset.readthedocs.io/en/latest/installation.html">旧版本的文档中提到&lt;/a>&lt;br>
