@@ -7,7 +7,7 @@ featured_image: "/azkaban_alert/featured_image.png"
 draft: false
 ---
 
-### 通过邮件方式
+## 通过邮件方式
 - 修改 Azkaban Web Server 端的 `azkaban.properties` 配置文件
    配置参数
 
@@ -26,7 +26,7 @@ mail.user=你的邮箱
 mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权码）
 ```
 - 保存上述修改的配置文件，重启 Web Server
-```
+```shell
 [xxx@hostname azkaban-web]$ bin/shutdown-web.sh
 [xxx@hostname azkaban-web]$ bin/start-web.sh
 ```
@@ -40,7 +40,7 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 
 <center>
 
-### 通过电话方式
+## 通过电话方式
 - 通过邮件接收报警通知可能存在接收消息不及时的问题，因此可以采用电话的方式接收报警通知。
 
 - 可以集成第三方的告警平台。
@@ -57,5 +57,5 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 
 <center>
 
-### 参考链接
+## 参考链接
 [configuration.html](https://azkaban.readthedocs.io/en/latest/configuration.html)
