@@ -1,9 +1,11 @@
 ---
 title: "Azkaban 配置邮件及电话告警"
-date: 2022-10-15T10:54:00+08:00
 description: "之后试试 DolphinScheduler，看起来不错。"
+toc: true
+authors: [hattrick]
 tags: [Azkaban]
-featured_image: "/azkaban_alert/featured_image.png"
+date: 2022-10-15T10:54:00+08:00
+lastmod: 2022-10-31T12:30:00+08:00
 draft: false
 ---
 

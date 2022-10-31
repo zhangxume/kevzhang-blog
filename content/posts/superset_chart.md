@@ -1,9 +1,11 @@
 ---
 title: "Superset 实践及踩坑记录"
-date: 2022-10-16T19:05:56+08:00
 description: "从美观程度来说我更喜欢 ECharts，下次换 Echarts。"
+toc: true
+authors: [hattrick]
 tags: [Superset]
-featured_image: "/superset_chart/featured_image.jpg"
+date: 2022-10-16T19:05:56+08:00
+lastmod: 2022-10-31T12:30:00+08:00
 draft: false
 ---
 

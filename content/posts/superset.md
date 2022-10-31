@@ -1,9 +1,11 @@
 ---
 title: "Superset 配置环境"
-date: 2022-10-16T12:00:59+08:00
-description: "出现版本不兼容的情况，参考链接解决问题"
+description: "出现版本不兼容的情况，参考链接解决问题。"
+toc: true
+authors: [hattrick]
 tags: [Superset]
-featured_image: "/superset_conf/featured_image.png"
+date: 2022-10-16T12:00:59+08:00
+lastmod: 2022-10-31T12:30:00+08:00
 draft: false
 ---
 
