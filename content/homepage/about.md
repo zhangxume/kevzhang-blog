@@ -9,8 +9,8 @@ organization:
   url: 
 social:
   - icon: envelope
-    iconPack: fa
-    url: kev.zhangx@gmail.com
+    iconPack: fas
+    url: mailto:kev.zhangx@gmail.com
   - icon: github
     iconPack: fab
     url: https://github.com/kevcode1
