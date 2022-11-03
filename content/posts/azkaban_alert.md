@@ -20,7 +20,7 @@ draft: false
 |mail.user|The email server user name.|
 |mail.password|The email password user name.|
 
-```
+```properties
 # 开通smtp服务后，设置邮件发送服务器
 mail.sender=你的邮箱
 mail.host=你的邮箱对应的smtp服务器（例如：smtp.163.com）
@@ -36,11 +36,7 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 
 - Project 执行结束并收到对应的通知邮件
 
-<center>
-
 ![](/azkaban_alert/email.jpg)
-
-<center>
 
 ## 通过电话方式
 - 通过邮件接收报警通知可能存在接收消息不及时的问题，因此可以采用电话的方式接收报警通知。
@@ -53,11 +49,7 @@ mail.password=你的邮箱的授权码（在开通smtp服务后获得的授权�
 
 - 后续可在第三方告警平台及时查看每日的告警详细记录。
 
-<center>
-
 ![](/azkaban_alert/phone.jpg)  
-
-<center>
 
 ## 参考链接
 [configuration.html](https://azkaban.readthedocs.io/en/latest/configuration.html)
