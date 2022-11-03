@@ -1,6 +1,6 @@
 ---
 # Name
-title: Hattrick
+title: Hat Trick
 role:
 bio:
 avatar:
